@@ -18,11 +18,10 @@ const DEPARTMENT = {
 
 const staffs = [
     { id: 1, fullName: 'Tran Kim Quoc', position: POSITION.STAFF, department: DEPARTMENT.IT, salary: 5000000 },
-    {id: 2, fullName: 'Le Thi Theu', position: POSITION.STAFF, department: DEPARTMENT.IT, salary: 6000000}
-    { id: 3, fullName: 'Vu Thi My Linh', position: POSITION.STAFF, department: DEPARTMENT.SALE, salary: 7000000 },
+    {id: 2, fullName: 'Le Thi Theu', position: POSITION.STAFF, department: DEPARTMENT.IT, salary: 6000000},
+    { id: 3, fullName: 'Vu Thi My Linh', position: POSITION.STAFF, department: DEPARTMENT.SALE, salary: 7000000 }
     
 ];
-
 
 /*2. Tạo các hàm để thực hiện các chức năng:												
 	+ getAllEmployees(): Lấy danh sách tất cả nhân viên.
@@ -40,15 +39,15 @@ const staffs = [
     - tham số employee là 1 object, bao gồm các thông tin như: id, fullName....
     - push tham số employee vào mảng staffs là xong. 
     - trả về (return về boolean) -> khi add staff thành công thì tôi return true. 
-    - Khi nào return false? -> 1, employee đã tồn tại || 2. employee = null
+    - Khi nào return false? -> 1, employee đã tồn tại || 2. employee = null|undefined
 
 	+ updateEmployee(employee): Cập nhật thông tin nhân viên.
     - tham số employee là 1 object, bao gồm các thông tin như: id, fullName...
-    - Lặp danh sách staffs -> phải check tham số employee.id phải tồn tại trong staffs
+    - Lặp danh sách staffs theo index -> phải check tham số employee.id phải tồn tại trong staffs
     - Nếu tồn tại -> tiến hành update thuộc tính truyền vào.
     - Nếu ko tồn tại -> return null hoặc là thêm mới -> tuỳ bàn toán yêu cầu.
     - trả về boolean -> true khi update thành công
-    - false khi? -> ko tìm thấy phàn tử  employee trong staffs ||  employee =
+    - false khi? -> ko tìm thấy phàn tử  employee trong staffs ||  employee = null | undefined
 
 	+ deleteEmployeeById(id): Xóa nhân viên theo mã nhân viên.		
     - Tham số id là số nguyên
@@ -56,9 +55,15 @@ const staffs = [
     - delete staffs[index]
     - id ko tồn tại, ko tìm thấy trong staffs -> ko xóa thôi
     - trả về boolean -> true khi delete thành công
-    - false khi? -> ko tìm thấy phàn tử  employee trong staffs ||  employee = null
+    - false khi? -> ko tìm thấy phàn tử  employee trong staffs ||  employee = null|undefined
 
 
+
+    Array.indexOf & Array.lastIndexOf
+    String -> cấu trúc của String giống Array
+    indexOf | lastIndexOf -> khi phần tử tồn tại trong Array|String
+        -> thì sẽ trả về index của phần tử đó trong Array|string
+    Nếu không tìm được phần tử trong Array|String thì sẽ trả về là -1
 
 	+ searchEmployeesByName(name): Tìm kiếm nhân viên theo tên. (READ)
     - Tham số name là 1 chuỗi
