@@ -21,10 +21,12 @@ function addEmployee(employee) {
         return false;
     }
 
-    for (const staff of staffs) {
-        if (employee.id === staff.id) {
-            return false;
-        }
+    const isExistEmployes = staffs.findIndex((staff) => {
+        return employee.id === staff.id;
+    });
+
+    if (isExistEmployes !== -1) {
+        return false;
     }
 
     staffs.push(employee);
@@ -50,32 +52,20 @@ if (resultAddStaff) {
 
 
 function updateEmployee(employee) {
-    let isExistEmployess = false;
-    for (const staff of staffs) {
-        if (employee.id === staff.id) {
-            isExistEmployess = true;
-            break;
-        }
-    }
+    const indexStaff = staffs.findIndex((staff) => {
+        return employee.id === staff.id;
+    });
     
-    if (!employee || !isExistEmployess) {
+    if (!employee || indexStaff === -1) {
         return false;
     }
 
-    let index = null; // index của phần tử cần update
-    for (let i = 0; i < staffs.length; i++) {
-        if (employee.id === staffs[i].id) {
-            index = i;
-            break;
-        }
-    }
-
     // xử lý update
-    if (index !== null) {
-        staffs[index].fullName = employee.fullName;
-        staffs[index].position = employee.position;
-        staffs[index].department = employee.department;
-        staffs[index].salary = employee.salary;
+    if (indexStaff !== -1) {
+        staffs[indexStaff].fullName = employee.fullName;
+        staffs[indexStaff].position = employee.position;
+        staffs[indexStaff].department = employee.department;
+        staffs[indexStaff].salary = employee.salary;
         return true;
     }
 }
@@ -111,23 +101,21 @@ Nguyen Tuan Anh
 */
 
 function searchEmployeesByName(name) {
-    const data = [];
+    let data = [];
 
     if (!name) {
         return data;
     }
 
-    for (let i = 0; i < staffs.length; i++) {
-        if (staffs[i].fullName.indexOf(name) !== -1) {
-            data.push(staffs[i]);
-        }
-    }
+    data = staffs.filter((staff) => {
+        return staff.fullName.indexOf(name) !== -1;
+    });
 
     return data;
 }
 
 
-let keyWord = 'Tuan Anh';
+let keyWord = 'Anh';
 const resultSearchWithName = searchEmployeesByName(keyWord);
 
 console.log('Danh sách nhân viên có từ khóa là ' + keyWord + ': ', resultSearchWithName);
