@@ -1,8 +1,6 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border: 1px solid red;
+    margin: 0 auto;
 }
 
 .btn-container {
@@ -18,7 +16,6 @@
 .task {
     display: flex;
     justify-content: space-between;
-    width: 300px;
     border: 1px solid green;
     margin: 8px;
 }
@@ -39,13 +36,22 @@
 }
 
 .input input {
-    width: 100%;
+    width: 70%;
     height: 52px;
     outline: none;
     font-size: 32px;
 }
 
+.task input {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 32px;
+    color: red;
+}
+
 .btn-add {
+    width: 30%;
     font-size: 24px;
     color: green;
 }
@@ -72,7 +78,16 @@ header h1 {
     margin: 0 auto;
 }
 
-.languages {
+.language {
     display: flex;
     gap: 10px;
+}
+
+.language div {
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.language div.language-selected {
+    border: 1px solid green;
 }

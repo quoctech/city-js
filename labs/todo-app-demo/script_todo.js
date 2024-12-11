@@ -1,5 +1,35 @@
+// Khai báo DOM (Document Object Model)
 var tasksContainer = document.getElementById('tasks');
+var btnAddTask = document.getElementById('btn-add');
+var btnLangVi = document.getElementById('lang-vi');
+var btnLangEn = document.getElementById('lang-en');
+
+
+// Khai báo các data
 var tasks = ['Task 1', 'Task 2', 'Task 3'];
+
+// Khai báo dữ liệu đa ngôn ngữ (Giả sữ dữ liệu language lấy từ database)
+var language = {
+    vi: {
+        app_name: 'Quản lý công việc',
+        enter_task: 'Nhập công việc',
+        add_task: 'Thêm công việc'
+    },
+    en: {
+        app_name: 'Todo App',
+        enter_task: 'Enter task',
+        add_task: 'Add task'
+    }
+};
+
+// Function này FAKE render template language
+function renderTemplate(lang = 'vi') {
+    var appName = document.getElementById('appname');
+    var enterTask = document.getElementById('txt-task'); // INPUT TAG
+    appName.textContent = language[lang].app_name;
+    enterTask.placeholder = language[lang].enter_task;
+    btnAddTask.textContent = language[lang].add_task;
+}
 
 // Function vẽ tasks ra ngoài màn hình
 function renderTasks() {
@@ -35,7 +65,6 @@ function addTask(task) {
     }
 }
 
-var btnAddTask = document.getElementById('btn-add');
 btnAddTask.addEventListener('click', function () {
     // this ở trường hợp, scope này chính là btnAddTask
     var txtTask = document.getElementById('txt-task');
@@ -94,4 +123,17 @@ function updateTask(indexUpdate) {
     }
 }
 
+btnLangVi.addEventListener('click', function() {
+    renderTemplate('vi');
+    btnLangEn.classList.remove('language-selected');
+    btnLangVi.classList.add('language-selected');
+});
+
+btnLangEn.addEventListener('click', function() {
+    renderTemplate('en');
+    btnLangEn.classList.add('language-selected');
+    btnLangVi.classList.remove('language-selected');
+});
+
 renderTasks();
+renderTemplate();
