@@ -68,6 +68,8 @@ function addTask(task) {
 btnAddTask.addEventListener('click', function () {
     // this ở trường hợp, scope này chính là btnAddTask
     var txtTask = document.getElementById('txt-task');
+
+    // them logic check ton tai
     addTask(txtTask.value);
 
     // reset input về rỗng
