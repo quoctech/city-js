@@ -65,9 +65,38 @@ function addTask(task) {
     }
 }
 
+// function kiểm tra tồn tại task trong mảng tasks
+function checkExistTask(value) {
+    for (var i = 0; i < tasks.length; i++) {
+        var task = tasks[i];
+        if (value == task) {
+            // tồn tại task
+            return true;
+        }
+    }
+
+    return false;
+}
+
 btnAddTask.addEventListener('click', function () {
     // this ở trường hợp, scope này chính là btnAddTask
     var txtTask = document.getElementById('txt-task');
+
+    /**
+     * Đoạn code check tồn tại task
+     * Có 2 kiểu, tùy ý
+     * 
+     * 1. tách function rồi call ở đây
+     * 2. xử lý ngay tại đây
+     * 
+     * Nếu mà trùng lặp task thì show alert.
+     * Nếu không trùng lặp thì add task bình thường
+     */
+
+    if (checkExistTask(txtTask.value)) {
+        return alert('Tồn tại task!!!');
+    }
+    
     addTask(txtTask.value);
 
     // reset input về rỗng
