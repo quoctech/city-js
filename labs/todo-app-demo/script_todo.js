@@ -150,7 +150,10 @@ function updateTask(indexUpdate) {
     taskNameElement.classList.remove("hide");
     btnElement.textContent = "E";
 
-    if (inputElement.value === "") {
+    // check tồn tại task
+    if (checkExistTask(inputElement.value)) {
+      alert(language[defaultLang].content_alert);
+    } else if (inputElement.value === "") {
       alert(language[defaultLang].update_alert);
     } else {
       taskNameElement.textContent = inputElement.value;
