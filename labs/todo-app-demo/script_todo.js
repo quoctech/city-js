@@ -41,7 +41,10 @@ function renderTemplate(lang = "vi") {
   appName.textContent = language[lang].app_name;
   enterTask.placeholder = language[lang].enter_task;
   btnAddTask.textContent = language[lang].add_task;
-  renderTasks();
+
+  if (!tasks.length) {
+    tasksContainer.innerHTML = `<h2>${language[defaultLang].add_data}</h2>`;
+  }
 }
 
 // Function vẽ tasks ra ngoài màn hình
