@@ -15,7 +15,7 @@
  * - content là kiểu text, là nội dung bài viết
  * - category_id là kiểu số nguyên, là id chuyên mục mà bài viết thuộc về
  * 
- * Giải thích thêm: chuyên mục 1 (GIẢI TRÍ) -> nhìn vào data dưới ta phát biểu
+ * Giải thích thêm: chuyên mục 1 (cateogry_id = 1 nghĩa là GIẢI TRÍ) -> nhìn vào data dưới ta phát biểu
  * "Bài viết 1 thuộc chuyên mục GIẢI TRÍ hoặc chuyên mục GIẢI TRÍ chứa bài viết 1"
  * 
  * @param callbackFn là 1 callback function được truyền vào từ bên ngoài
