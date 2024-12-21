@@ -1,0 +1,18 @@
+--- Làm việc với file index.js tại thư mục s5_practice_js ---
+Bài 1: Viết hàm getTotal() cho 1 dãy số từ 1 tới 10, hãy tính tổng dãy số đó và trả về (return) kết quả
+
+Bài 2: Viết hàm getTotalEvenNumber() cho 1 dãy số từ 1 tới 10, hãy tính tổng dãy số đó với các phần tử là số chẵn và trả về (return) kết quả
+
+Bài 3: 
+    Hãy dùng kiến thức Array & Object xây dựng 1 mảng đối tượng là "users" gồm các thông tin:
+        - name
+        - age
+        - gender (Nam/Nữ)
+        - birthday (năm sinh)
+        - point (Điểm hoạt động từ 1 - 10)
+    
+    1. Viết hàm lấy ra các users bởi năm sinh.
+    2. Viết hàm lấy ra các users bởi giới tính
+
+Bài 4:
+    Dùng kiến thức tham chiếu hãy viết 1 hàm xóa các user có điểm hoạt động (point) nhỏ hơn 1.
