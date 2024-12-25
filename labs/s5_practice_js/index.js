@@ -70,11 +70,19 @@ function getUsersByGender(users, gender) {
 
   return usersFound;
 }
-var resultByGender = getUsersByGender(users, "nu");
+var resultByGender = getUsersByGender(users, "Nam");
 console.log(resultByGender);
 
 // INPUT: users<array>, point<int>
 // OUTPUT: void - không xác định. - tham chiếu, loại bỏ user có point < pointDelete
 function deleteUserByPoint(users, pointDelete = 1) {
-    // code logic here
+  // code logic here
+  for (var j in users) {
+    if (users[j].point < pointDelete) {
+      users.splice(j, 1);
+    }
+  }
+  return users;
 }
+delPoint = deleteUserByPoint(users, 1);
+console.log(delPoint);
