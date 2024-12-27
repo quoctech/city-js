@@ -41,7 +41,7 @@ var users = [
 // OUTPUT: 1 mảng users tìm được bởi birthday truyền vào
 function getUsersByBirthDay(users, birthday) {
   var usersFound = []; // 1 mảng người dùng khi tìm thấy bởi birthday
-  if (!users) {
+  if (!users || !Array.isArray(users)) {
     return false;
   }
   for (var i in users) {
@@ -52,14 +52,14 @@ function getUsersByBirthDay(users, birthday) {
 
   return usersFound;
 }
-var result = getUsersByBirthDay(users, 1998);
+var result = getUsersByBirthDay(users, 2002);
 console.log(result);
 
 // INPUT: users<array>, gender<string>
 // OUTPUT: 1 mảng users tìm được bởi gender truyền vào
 function getUsersByGender(users, gender) {
   var usersFound = []; // 1 mảng người dùng khi tìm thấy bởi gender
-  if (!users) {
+  if (!users || !Array.isArray(users)) {
     return false;
   }
   for (var j in users) {
@@ -82,7 +82,6 @@ function deleteUserByPoint(users, pointDelete = 1) {
       users.splice(j, 1);
     }
   }
-  return users;
 }
-delPoint = deleteUserByPoint(users, 1);
-console.log(delPoint);
+deleteUserByPoint(users, 1);
+console.log(users);
