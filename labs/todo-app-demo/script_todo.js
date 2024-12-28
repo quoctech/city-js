@@ -49,7 +49,7 @@ function renderTemplate(lang = "vi") {
 
 // Function vẽ tasks ra ngoài màn hình
 function renderTasks() {
-  var html = "";
+  /*var html = "";
   for (var i = 0; i < tasks.length; i++) {
     var task = tasks[i];
     html += `<div class="task">
@@ -60,10 +60,22 @@ function renderTasks() {
                         <button class="btn-delete" onClick="deleteTask(${i})">X</button>
                     </div>
                 </div>`;
-  }
+  }*/
+  
+  // Refactor code với map & join
+  var xhtml = tasks.map(function(task, idx) {
+    return  `<div class="task">
+              <input type="text" class="hide input-${idx}" />
+              <div class="task-name task-name-${idx}">${task}</div>
+              <div class="btn-container">
+                  <button class="btn-edit btn-${idx}" onClick="updateTask(${idx})">E</button>
+                  <button class="btn-delete" onClick="deleteTask(${idx})">X</button>
+              </div>
+          </div>`;
+  }).join('');
 
-  if (html) {
-    tasksContainer.innerHTML = html;
+  if (xhtml) {
+    tasksContainer.innerHTML = xhtml;
   } else {
     tasksContainer.innerHTML = `<h2>${language[defaultLang].add_data}</h2>`;
   }
