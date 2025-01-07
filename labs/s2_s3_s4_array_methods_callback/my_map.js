@@ -21,16 +21,20 @@ var productsFormatted1 = products.map(function(product, index) {
 });
 
 for (var productFormatted of productsFormatted1) {
-    console.log(productFormatted);
+  // console.log(productFormatted);
 }
-
 
 // OK, phía trên là code demo sử dụng method map trong array
 // Hãy hoàn thiện logic cho function myMap giống method map
 
 function myMap(callback, array) {
-    // Code logic here
+  // Code logic here
+  for (var i = 0; i < callback.length; i++) {
+    var product = callback[i];
+    console.log(`${product.id}, ${product.name}, ($${product.price})`);
+  }
 }
+myMap(products);
 
 /*var productsFormatted2 = myMap(function(product, index) {
     return `${product.id}, ${product.name} ($${product.price})`;
