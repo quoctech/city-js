@@ -10,6 +10,7 @@
  * slice()
  * splice()
  * join()
+ * every()
  */
 
 var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Kết quả: 1 2 3 4 5 6 7 8 9 10
@@ -150,6 +151,14 @@ numbers.splice(start, deleteCount); // 6 7 8 9 10 (6 có index là 5)
 var txtOfNumber = numbers.join('-');
 // console.log(txtOfNumber);
 
+// Every method
+// Phương thức every(callbackFn(val, index)) sẽ lặp qua từng phần tử trong mảng và gọi callbackFunction cho mỗi phần tử. 
+// Nếu tất cả các cuộc gọi đều trả về true, thì every() sẽ trả về true, ngược lại trả về false.
+// VD: Kiểm tra trong mảng numberList có phần tử nào chia hết cho 2 không.
+var numberList = [10, 15, 12, 16, 18];
+var allEven = numberList.every(function(value, index) {
+    return value % 2 === 0;
+}); // false vì trong mảng có phần tử số 15 không chia hết cho 2.
 
 // CÒN NHIỀU METHODS NỮA TUY NHIÊN LÚC LÀM SẼ TÌM HIỂU SAU.
 // BÊN TRÊN LÀ CÁC METHODS HAY SỬ DỤNG, PHỔ BIẾN KHI LẬP TRÌNH JS NÓI CHUNG
