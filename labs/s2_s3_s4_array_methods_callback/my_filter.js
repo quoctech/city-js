@@ -15,7 +15,14 @@ var products = [
  */
 
 function myFilter(callback, array) {
-    // code logic here
+  // code logic here
+  for (var i = 0; i < callback.length; i++) {
+    var product = callback[i];
+    if (product.price > 1000) {
+      console.log(`${product.id}, ${product.name}, ($${product.price})`);
+    }
+  }
 }
 
 // Code logic show data...
+myFilter(products);
