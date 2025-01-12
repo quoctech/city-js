@@ -40,10 +40,14 @@ function myMap(callback, array) {
     return temp;
 }
 
-var productsFormatted = myMap(function(product, index) {
+/*var productsFormatted = myMap(function(product, index) {
     return `${product.id}, ${product.name} ($${product.price})`;
 }, products);
 
 for (var productFormatted of productsFormatted) {
     console.log(productFormatted);
-}
+}*/
+
+module.exports = {
+    myMap
+};
