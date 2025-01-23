@@ -94,15 +94,9 @@ function addTask(task) {
 
 // function kiểm tra tồn tại task trong mảng tasks
 function checkExistTask(value) {
-  for (var i = 0; i < tasks.length; i++) {
-    var task = tasks[i];
-    if (value == task) {
-      // tồn tại task
-      return true;
-    }
-  }
-
-  return false;
+  return tasks.some(function (task) {
+    return value == task;
+  });
 }
 
 btnAddTask.addEventListener("click", function () {
@@ -132,16 +126,9 @@ btnAddTask.addEventListener("click", function () {
 
 // function xóa task
 function deleteTask(indexDel) {
-  var temp = [];
-  for (var i = 0; i < tasks.length; i++) {
-    var task = tasks[i];
-
-    if (i != indexDel) {
-      temp.push(task);
-    }
-  }
-
-  tasks = temp;
+  tasks = tasks.filter(function (task, index) {
+    return index != indexDel;
+  });
 
   renderTasks();
 }
