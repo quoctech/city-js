@@ -95,3 +95,9 @@ header h1 {
 .test {
     color:aqua;
 }
+
+#btn-sort-desc, #btn-sort-asc {
+    font-size: 24px;
+    margin: 8px 0;
+    font-weight: 700;
+}

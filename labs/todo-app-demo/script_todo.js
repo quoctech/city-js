@@ -3,7 +3,8 @@ var tasksContainer = document.getElementById('tasks');
 var btnAddTask = document.getElementById('btn-add');
 var btnLangVi = document.getElementById('lang-vi');
 var btnLangEn = document.getElementById('lang-en');
-
+var btnSortDesc = document.getElementById('btn-sort-desc');
+var btnSortAsc = document.getElementById('btn-sort-asc');
 
 // Khai báo các data
 var tasks = ['Task 1', 'Task 2', 'Task 3'];
@@ -177,6 +178,16 @@ btnLangEn.addEventListener('click', function() {
     renderTemplate('en');
     btnLangEn.classList.add('language-selected');
     btnLangVi.classList.remove('language-selected');
+});
+
+btnSortDesc.addEventListener('click', function() {
+    console.log('Clicked sort Desc', tasks);
+    // Khi sắp xếp xong thì render lại UI. (renderTasks)
+});
+
+btnSortAsc.addEventListener('click', function() {
+  console.log('Clicked Sort Asc');
+  // Khi sắp xếp xong thì render lại UI. (renderTasks)
 });
 
 renderTasks();
